@@ -1,4 +1,4 @@
-package application.dataLayer.repository.questionRepository;
+package application.dataLayer.repository;
 
 import application.model.question.Question;
 import application.model.test.Test;

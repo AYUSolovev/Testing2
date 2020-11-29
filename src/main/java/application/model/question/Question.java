@@ -8,7 +8,7 @@ import java.util.List;
 
 
 @Entity
-@Table(name = "questions")
+@Table(name = "question")
 public class Question {
     @Id
     @Column(name = "id")
@@ -18,18 +18,18 @@ public class Question {
     @Column(name = "question")
     private String question;
 
-    @Column(name = "type_question")
+    @Column(name = "type")
     @Enumerated(EnumType.STRING)
-    private TypeQuestion typeQuestion;
+    private QuestionType type;
 
-    @Column(name = "author_question")
-    private String authorQuestion;
+    @Column(name = "author")
+    private String author;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "question", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Answer> answers;
 
-    @ManyToOne
+    @ManyToMany
     @JoinColumn(name = "test_id")
     @JsonBackReference
     private Test test;
@@ -41,6 +41,10 @@ public class Question {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getQuestion() {
         return question;
     }
@@ -49,28 +53,36 @@ public class Question {
         this.question = question;
     }
 
-    public TypeQuestion getTypeQuestion() {
-        return typeQuestion;
+    public QuestionType getType() {
+        return type;
     }
 
-    public void setTypeQuestion(TypeQuestion typeQuestion) {
-        this.typeQuestion = typeQuestion;
+    public void setType(QuestionType type) {
+        this.type = type;
     }
 
-    public String getAuthorQuestion() {
-        return authorQuestion;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setAuthorQuestion(String authorQuestion) {
-        this.authorQuestion = authorQuestion;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public List<Answer> getAnswers() {
         return answers;
     }
 
-    public void setAnswers(List<Answer> answerList) {
-        this.answers = answerList;
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
+    }
+
+    public Test getTest() {
+        return test;
+    }
+
+    public void setTest(Test test) {
+        this.test = test;
     }
 
     public void addAnswer(Answer answer) {
@@ -82,23 +94,4 @@ public class Question {
         answers.remove(answer);
     }
 
-    public Test getTest() {
-        return test;
-    }
-
-    public void setTest(Test test) {
-        this.test = test;
-    }
-
-    @Override
-    public String toString() {
-        return "Question{" +
-                "id=" + id +
-                ", question='" + question + '\'' +
-                ", typeQuestion=" + typeQuestion +
-                ", authorQuestion='" + authorQuestion + '\'' +
-                ", answers=" + answers +
-                ", test=" + test +
-                '}';
-    }
 }

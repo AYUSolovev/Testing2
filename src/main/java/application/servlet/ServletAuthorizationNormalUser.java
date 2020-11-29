@@ -1,7 +1,6 @@
 package application.servlet;
 
-import application.bisinessLayer.adnUserService.AdmUserService;
-import application.bisinessLayer.normalUserService.NormalUserService;
+import application.bisinessLayer.user.UserService;
 import application.model.User.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
@@ -20,7 +19,7 @@ import java.io.IOException;
 public class ServletAuthorizationNormalUser extends HttpServlet {
 
     @Autowired
-    private NormalUserService userService;
+    private UserService userService;
 
     public void init(ServletConfig config) throws ServletException {
         super.init(config);

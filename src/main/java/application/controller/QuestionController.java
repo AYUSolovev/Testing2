@@ -1,7 +1,6 @@
 package application.controller;
 
-import application.bisinessLayer.questionService.QuestionService;
-import application.model.question.Answer;
+import application.bisinessLayer.question.QuestionService;
 import application.model.question.Question;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -45,11 +44,8 @@ public class QuestionController {
 
     @POST
     @Path("/adm/create")
-    public void createQuestion(@QueryParam("question") String question,
-                               @QueryParam("typeQuestion") String typeQuestion,
-                               @QueryParam("authorQuestion") String authorQuestion,
-                               @QueryParam("testId") String testId){
-        questionService.createQuestion(question, typeQuestion, authorQuestion, testId);
+    public void createQuestion(Question question){
+        questionService.createQuestion(question);
     }
 
     @GET

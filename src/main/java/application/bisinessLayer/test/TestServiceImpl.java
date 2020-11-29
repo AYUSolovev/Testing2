@@ -1,6 +1,6 @@
-package application.bisinessLayer.testService;
+package application.bisinessLayer.test;
 
-import application.dataLayer.repository.testRepository.TestRepository;
+import application.dataLayer.repository.TestRepository;
 import application.model.test.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

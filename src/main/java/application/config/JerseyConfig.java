@@ -1,5 +1,8 @@
-package application.controller;
+package application.config;
 
+import application.controller.QuestionController;
+import application.controller.TestController;
+import application.controller.UserController;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.stereotype.Component;
 
@@ -9,6 +12,5 @@ public class JerseyConfig extends ResourceConfig {
         register(UserController.class);
         register(QuestionController.class);
         register(TestController.class);
-        register(AnswerController.class);
     }
 }

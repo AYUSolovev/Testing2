@@ -1,4 +1,4 @@
-package application.bisinessLayer.testService;
+package application.bisinessLayer.test;
 
 import application.model.test.Test;
 

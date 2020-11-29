@@ -1,4 +1,4 @@
-package application.dataLayer.repository.answerRepository;
+package application.dataLayer.repository;
 
 import application.model.question.Answer;
 import application.model.question.Question;
@@ -8,5 +8,5 @@ import java.util.List;
 
 
 public interface AnswerRepository extends CrudRepository<Answer, Long> {
-    List<Answer> findAllByQuestion(Question question);
+    List<Answer> getAllByQuestion(Question question);
 }

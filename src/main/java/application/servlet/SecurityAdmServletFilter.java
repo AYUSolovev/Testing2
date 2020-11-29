@@ -17,7 +17,7 @@ public class SecurityAdmServletFilter implements Filter {
                 (HttpServletRequest) servletRequest;
         HttpSession session = req.getSession();
         User user = (User)session.getAttribute("user");
-        if(user.getClass() == AdmUser.class)
+        if(user.getRole() == UserRoleEnum.ADMIN)
             filterChain.doFilter(servletRequest, servletResponse);
         else
             throw new ServletException("You shall not pass!");

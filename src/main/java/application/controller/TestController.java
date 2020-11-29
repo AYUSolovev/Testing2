@@ -1,6 +1,6 @@
 package application.controller;
 
-import application.bisinessLayer.testService.TestService;
+import application.bisinessLayer.test.TestService;
 import application.model.test.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 

@@ -1,6 +1,6 @@
 package application.controller;
 
-import application.bisinessLayer.normalUserService.NormalUserService;
+import application.bisinessLayer.normalUser.NormalUserService;
 import application.model.User.*;
 import org.springframework.beans.factory.annotation.Autowired;
 

@@ -3,22 +3,27 @@ package application.model.User;
 import javax.persistence.*;
 
 
-@MappedSuperclass
-abstract public class User {
+@Entity
+@Table(name = "user")
+public class User {
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected Long id;
+    private Long id;
 
     @Column(name = "name")
-    protected String name;
+    private String name;
 
     @Column(name = "login")
-    protected String login;
+    private String login;
 
     @Column(name = "password")
-    protected String password;
+    private String password;
+
+    @Column
+    @Enumerated(EnumType.STRING)
+    private UserRoleEnum role;
 
     public User() {
     }
@@ -53,5 +58,13 @@ abstract public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public UserRoleEnum getRole() {
+        return role;
+    }
+
+    public void setRole(UserRoleEnum role) {
+        this.role = role;
     }
 }

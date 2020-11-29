@@ -36,11 +36,4 @@ public class ServletConfiguration {
         bean.setLoadOnStartup(1);
         return bean;
     }
-    @Bean
-    public ServletRegistrationBean servletAuthorizationAdmUser(){
-        ServletRegistrationBean bean = new ServletRegistrationBean(
-                new ServletAuthorizationAdmUser(),"/user/adm/authorization");
-        bean.setLoadOnStartup(1);
-        return bean;
-    }
 }

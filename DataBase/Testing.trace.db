@@ -1952,3 +1952,19 @@ select admuser0_.id as id1_0_, admuser0_.login as login2_0_, admuser0_.name as n
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "ADM_USER" не найдена
 Table "ADM_USER" not found; SQL statement:
 select admuser0_.id as id1_0_, admuser0_.login as login2_0_, admuser0_.name as name3_0_, admuser0_.password as password4_0_ from adm_user admuser0_ where admuser0_.login=? [42102-200]
+2020-11-29 12:23:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "MORMAL_USERS" не найдена
+Table "MORMAL_USERS" not found; SQL statement:
+drop table mormal_users [42102-200]
+2020-11-29 12:31:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "RENAME[*] TABLE QUESTIONS TO QUESTION"; ожидалось "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE"
+Syntax error in SQL statement "RENAME[*] TABLE QUESTIONS TO QUESTION"; expected "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE"; SQL statement:
+RENAME TABLE questions TO question [42001-200]
+2020-11-29 12:31:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "RENAME[*] TABLE ANSWERS TO ANSWER"; ожидалось "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE"
+Syntax error in SQL statement "RENAME[*] TABLE ANSWERS TO ANSWER"; expected "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE"; SQL statement:
+RENAME TABLE answers TO answer [42001-200]
+2020-11-29 12:32:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "ALTER TABLE QUESTIONS RENAME QUESTION[*]"; ожидалось "COLUMN, CONSTRAINT, TO"
+Syntax error in SQL statement "ALTER TABLE QUESTIONS RENAME QUESTION[*]"; expected "COLUMN, CONSTRAINT, TO"; SQL statement:
+ALTER TABLE questions RENAME question [42001-200]

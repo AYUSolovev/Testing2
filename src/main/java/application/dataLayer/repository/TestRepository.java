@@ -1,4 +1,4 @@
-package application.dataLayer.repository.testRepository;
+package application.dataLayer.repository;
 
 import application.model.test.Test;
 import org.springframework.data.repository.CrudRepository;

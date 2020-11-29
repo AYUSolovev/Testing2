@@ -1,6 +1,5 @@
 package application.servlet;
 
-import application.model.User.AdmUser;
 import application.model.User.User;
 
 import javax.servlet.*;

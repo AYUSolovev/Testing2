@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "tests")
+@Table(name = "test")
 public class Test {
 
     @Id
@@ -19,7 +19,7 @@ public class Test {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "test", cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "test")
     @JsonManagedReference
     private List<Question> questions;
 
@@ -46,6 +46,10 @@ public class Test {
         return questions;
     }
 
+    public void setQuestions(List<Question> questions) {
+        this.questions = questions;
+    }
+
     public void addQuestion(Question question) {
         questions.add(question);
         question.setTest(this);
@@ -55,7 +59,4 @@ public class Test {
         questions.remove(question);
     }
 
-    public void setQuestions(List<Question> questionsList) {
-        this.questions = questionsList;
-    }
 }
