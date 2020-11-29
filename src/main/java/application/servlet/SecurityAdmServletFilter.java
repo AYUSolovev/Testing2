@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter(urlPatterns = {"/question/adm/*", "/test/delete/*"})
+@WebFilter(urlPatterns = {"/question/adm/*", "/test/*", "/test/create"})
 public class SecurityAdmServletFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
             throws IOException, ServletException {

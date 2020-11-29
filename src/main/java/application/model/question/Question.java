@@ -1,6 +1,7 @@
 package application.model.question;
 import application.model.test.Test;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -97,6 +98,11 @@ public class Question{
 
     public void removeAnswer(Answer answer) {
         answers.remove(answer);
+    }
+
+    public void addTest(Test test){
+        tests.add(test);
+        test.addQuestion(this);
     }
 
 }

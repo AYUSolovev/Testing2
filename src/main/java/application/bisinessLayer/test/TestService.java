@@ -8,4 +8,5 @@ public interface TestService {
     List<Test> getAllTest();
     Test getTestById(String id);
     void deleteTest(String id);
+    void createTest(Test test);
 }

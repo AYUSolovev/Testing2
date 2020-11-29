@@ -1,7 +1,6 @@
 package application.model.test;
 
 import application.model.question.Question;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.List;
@@ -19,7 +18,6 @@ public class Test {
     private String name;
 
     @ManyToMany(mappedBy = "tests")
-    @JsonManagedReference
     private List<Question> questions;
 
     public Test() {
@@ -49,5 +47,13 @@ public class Test {
         this.questions = questions;
     }
 
+    public void addQuestion(Question question) {
+        question.addTest(this);
+        questions.add(question);
+    }
+
+    public void removeQuestion(Question question) {
+        questions.remove(question);
+    }
 
 }

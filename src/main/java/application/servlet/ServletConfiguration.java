@@ -17,7 +17,7 @@ public class ServletConfiguration {
     public FilterRegistrationBean securityServletAdmFilter(){
         FilterRegistrationBean bean = new FilterRegistrationBean();
         bean.setFilter(new SecurityAdmServletFilter());
-        bean.addUrlPatterns("/question/adm/*","/test/delete/*");
+        bean.addUrlPatterns("/question/adm/*","/test/delete/*", "/test/create");
         return bean;
     }
 

@@ -5,6 +5,7 @@ import application.model.test.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -32,5 +33,11 @@ public class TestServiceImpl implements TestService {
     public void deleteTest(String id){
         Long idL = new Long(id);
         testRepository.deleteById(idL);
+    }
+
+    @Override
+    @Transactional
+    public void createTest(Test test){
+        testRepository.save(test);
     }
 }

@@ -3,6 +3,7 @@ package application.controller;
 import application.bisinessLayer.question.QuestionService;
 import application.model.question.Question;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.ws.rs.*;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class QuestionController {
     @Autowired
     private QuestionService questionService;
 
-    @POST
+    @GET
     @Path("/adm/view")
     public List<Question> getAllQuestion(@QueryParam("question") String question){
         List<Question> questions = questionService.findAllByQuestion(question);
@@ -43,8 +44,8 @@ public class QuestionController {
     }
 
     @POST
-    @Path("/adm/create")
-    public void createQuestion(Question question){
+    @Path("/adm")
+    public void createQuestion(@RequestBody Question question){
         questionService.createQuestion(question);
     }
 

@@ -15,7 +15,7 @@ public class UserController {
     private UserService userService;
 
     @POST
-    @Path("/registration")
+    @Path("")
     public void registrationUser(User user){
         userService.createUser(user);
     }
