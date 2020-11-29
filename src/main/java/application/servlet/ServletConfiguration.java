@@ -30,9 +30,9 @@ public class ServletConfiguration {
     }
 
     @Bean
-    public ServletRegistrationBean servletAuthorizationNormalUser(){
+    public ServletRegistrationBean servletAuthorizationUser(){
         ServletRegistrationBean bean = new ServletRegistrationBean(
-                new ServletAuthorizationNormalUser(),"/user/authorization");
+                new ServletAuthorizationUser(),"/user/authorization");
         bean.setLoadOnStartup(1);
         return bean;
     }

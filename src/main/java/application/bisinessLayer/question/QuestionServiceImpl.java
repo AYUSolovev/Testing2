@@ -33,7 +33,7 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     public List<Question> getAllQuestionByTest(String id){
         Test test = testService.getTestById(id);
-        List<Question> questions = questionRep.getAllByTest(test);
+        List<Question> questions = questionRep.getAllByTests(test);
         for(int i = 0; i < questions.size(); i++){
             questions.get(i).setAnswers(answerRepository.getAllByQuestion(questions.get(i)));
         }

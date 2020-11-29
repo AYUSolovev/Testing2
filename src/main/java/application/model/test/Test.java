@@ -1,7 +1,6 @@
 package application.model.test;
 
 import application.model.question.Question;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -19,7 +18,7 @@ public class Test {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany(mappedBy = "test")
+    @ManyToMany(mappedBy = "tests")
     @JsonManagedReference
     private List<Question> questions;
 
@@ -50,13 +49,5 @@ public class Test {
         this.questions = questions;
     }
 
-    public void addQuestion(Question question) {
-        questions.add(question);
-        question.setTest(this);
-    }
-
-    public void removeQuestion(Question question) {
-        questions.remove(question);
-    }
 
 }

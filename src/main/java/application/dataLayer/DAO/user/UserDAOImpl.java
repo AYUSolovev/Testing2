@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
-import java.util.List;
 
 @Component
 public class UserDAOImpl implements UserDAO {
@@ -21,18 +20,15 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
+    @Transactional
     public User getUserByLogin(String login) {
-        TypedQuery<User> tq = em.createQuery("Select c from User c where c.login = :login", User.class);
-        tq.setParameter("login",login);
-        if (tq.getSingleResult() != null)
+        try {
+            TypedQuery<User> tq = em.createQuery("Select c from User c where c.login = :login", User.class);
+            tq.setParameter("login", login);
             return tq.getSingleResult();
-        else return null;
+        }catch (Exception e){
+        }
+        return null;
     }
 
-    @Override
-    public List<User> getAllUser(){
-        TypedQuery<User> tq = em.createQuery("Select c from User c where c.id > : minId", User.class);
-        tq.setParameter("minId",0L);
-        return tq.getResultList();
-    }
 }

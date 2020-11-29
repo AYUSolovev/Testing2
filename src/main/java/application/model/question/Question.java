@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "question")
-public class Question {
+public class Question{
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,9 +30,13 @@ public class Question {
     private List<Answer> answers;
 
     @ManyToMany
-    @JoinColumn(name = "test_id")
+    @JoinTable(name = "test_to_question",
+    joinColumns = {
+            @JoinColumn(name = "question_id")},
+    inverseJoinColumns = {
+            @JoinColumn(name = "test_id")})
     @JsonBackReference
-    private Test test;
+    private List<Test> tests;
 
     public Question() {
     }
@@ -77,13 +81,14 @@ public class Question {
         this.answers = answers;
     }
 
-    public Test getTest() {
-        return test;
+    public List<Test> getTests() {
+        return tests;
     }
 
-    public void setTest(Test test) {
-        this.test = test;
+    public void setTests(List<Test> tests) {
+        this.tests = tests;
     }
+
 
     public void addAnswer(Answer answer) {
         answers.add(answer);

@@ -15,8 +15,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 
-@WebServlet(name = "servletAuthorizationNormalUser", urlPatterns = "/user/authorization")
-public class ServletAuthorizationNormalUser extends HttpServlet {
+@WebServlet(name = "servletAuthorizationUser", urlPatterns = "/user/authorization")
+public class ServletAuthorizationUser extends HttpServlet {
 
     @Autowired
     private UserService userService;
@@ -34,11 +34,7 @@ public class ServletAuthorizationNormalUser extends HttpServlet {
         User user = userService.getUser(login, password);
         if (user.getName() != null){
             session.setAttribute("user",user);
-            System.out.print("Авторизация прошла успешно");
+            System.out.println("Авторизация прошла успешно");
         }
-        else{
-            System.out.print("Неудачно");
-        }
-
     }
 }
