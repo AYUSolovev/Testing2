@@ -3,6 +3,7 @@ package application.controller;
 import application.bisinessLayer.user.UserService;
 import application.model.User.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.ws.rs.*;
 
@@ -16,7 +17,7 @@ public class UserController {
 
     @POST
     @Path("")
-    public void registrationUser(User user){
+    public void registrationUser(@RequestBody User user){
         userService.createUser(user);
     }
 

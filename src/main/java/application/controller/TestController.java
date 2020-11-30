@@ -5,7 +5,6 @@ import application.model.test.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import java.util.List;
 
@@ -19,7 +18,6 @@ public class TestController {
 
     @GET
     @Path("/view")
-    @Transactional
     public List<Test> getTests(){
         List<Test> tests = testService.getAllTest();
         return tests;
@@ -32,10 +30,8 @@ public class TestController {
     }
 
     @POST
-    @Path("/create")
-    @Transactional
+    @Path("")
     public void createTest(@RequestBody Test test){
-        System.out.println(test.getQuestions().get(1).getQuestion());
         testService.createTest(test);
     }
 

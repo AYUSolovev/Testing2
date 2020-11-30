@@ -36,7 +36,6 @@ public class TestServiceImpl implements TestService {
     }
 
     @Override
-    @Transactional
     public void createTest(Test test){
         testRepository.save(test);
     }

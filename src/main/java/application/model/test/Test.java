@@ -17,7 +17,12 @@ public class Test {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany(mappedBy = "tests")
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "test_to_question",
+            joinColumns = {
+                    @JoinColumn(name = "test_id")},
+            inverseJoinColumns = {
+                    @JoinColumn(name = "question_id")})
     private List<Question> questions;
 
     public Test() {
